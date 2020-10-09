@@ -1,0 +1,7 @@
+{
+  "name": "StripeIntegration",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
