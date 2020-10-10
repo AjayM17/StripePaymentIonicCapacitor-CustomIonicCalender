@@ -14,7 +14,18 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-button (click)="pay()">
+    Pay via Stripe
+  </ion-button>
   </div>
+  <ion-card-content>
+    <form action="/" method="post" id="payment-form">
+      <div class="form-row">
+        <div id="card-element"> <!-- a Stripe Element will be inserted here. --> </div>
+        <!-- Used to display Element errors -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+      <ion-button type="submit" color="success" expand="full">Make Payment</ion-button>
+    </form>
+  </ion-card-content>
 </ion-content>
