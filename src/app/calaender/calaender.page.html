@@ -1,0 +1,67 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>calaender</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <ion-grid class="calender">
+    <ion-row class="header">
+      <ion-col class="element" (click)="toggleDropdown()">
+        <span >
+          {{months[selected_month]['name']}}
+        </span>
+        <ion-icon name="caret-down-outline" ></ion-icon>
+        
+      </ion-col>
+      <div class="dropdown" *ngIf="month_dropdown_toggle_value">
+        <div class="dropdown-element" *ngFor="let month of months;let i = index" (click)="selectMonth(i , 2020)">
+          {{month.name}}
+        </div>
+      </div>
+      <ion-col class="element">
+        <span>
+          DAY
+        </span>
+        <ion-icon name="caret-down-outline"></ion-icon>
+      </ion-col>
+      <ion-col class="element">
+        <span>
+          ALL
+        </span>
+        <ion-icon name="caret-down-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row class="sub-header">
+      <ion-col style="    text-align: center;" *ngFor="let day of weekdays">
+        <span>
+          {{day.name }}
+        </span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="week" *ngFor="let calaender of monthCalenderView; let row_index = index" [style.border-right]="'1px solid #eee'" [style.border-bottom]="row_index == monthCalenderView.length -1 ? '1px solid #eee':'none'" >
+      <ion-col class="day" *ngFor="let day of calaender">
+        <span>
+          {{day.value}}
+        </span>
+        <div class="event" *ngIf="day.event.length != 0">
+          <div style="font-size: 16px;">
+            {{day.event.length}}
+          </div>
+          <div class="tag">
+            Events
+          </div>
+          <div class="event_boxes">
+
+
+            <div *ngFor="let count of  day.event" class="box" [style.background-color]="count.color">
+
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -8,8 +8,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'calaender',
     pathMatch: 'full'
+  },
+  {
+    path: 'calaender',
+    loadChildren: () => import('./calaender/calaender.module').then( m => m.CalaenderPageModule)
   },
 ];
 
